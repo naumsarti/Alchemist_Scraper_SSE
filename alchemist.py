@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import os
 
 def buscar_alquimia(termo):
     url = "https://en.uesp.net/wiki/Skyrim:Useful_Potions"
@@ -38,18 +39,29 @@ def buscar_alquimia(termo):
         return []
 
 if __name__ == "__main__":
-    print("--- Alchemist Scraper SSE ---")
-    busca = input("Qual poção ou efeito você deseja consultar? ").strip()
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
 
-    if busca:
-        lista = buscar_alquimia(busca)
+        print("--- Alchemist Scraper SSE (Digite 'exit' para sair) ---")
+        busca = input("Qual poção ou efeito você deseja consultar? ").strip()
 
-        if lista:
-            print(f"\n Achei {len(lista)} resultado(s):")
-            print("=" * 60)
-            for item in lista:
-                print(f" {item['Efeito']}")
-                print(f" {item['Ingredientes']}")
+        if busca == 'exit':
+            print("\nEncerrando o Grimório... Até logo, Alquimista!\n")
+            break
+
+        if busca:
+            lista = buscar_alquimia(busca)
+
+            if lista:
+                print(f"\n Achei {len(lista)} resultado(s):\n")
                 print("-" * 60)
-        else:
-            print(f" '{busca}' não encontrado. Tente apenas 'Block' ou 'Health'.")
+                for item in lista:
+                    print(f"Efeito: {item['Efeito']}")
+                    print(f"Ingredientes: {item['Ingredientes']}")
+                    print("-" * 60)
+
+                input("\nPressione ENTER para realizar uma nova busca...")
+
+            else:
+                print(f"\n '{busca}' não encontrado. Tente apenas 'Block' ou 'Health'.\n")
+                input("\nPressione ENTER para realizar uma nova busca...")
