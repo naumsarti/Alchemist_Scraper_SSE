@@ -7,3 +7,30 @@
 
 * **Busca Global:** Vasculha todas as tabelas de poções e venenos do UESP.
 * **Busca por Efeito ou Ingrediente:** Encontre receitas digitando o nome do efeito (ex: *Invisibility*) ou um ingrediente específico (ex: *Giant's Toe*).
+
+## Como Instalar e Rodar
+> **Requisito:** Python 3.12 ou superior.
+### 1. **Clone o repositório**
+```bash
+git clone https://github.com/naumsarti/Alchemist_Scraper_SSE.git
+cd Alchemist_Scraper_SSE
+```
+### 2. **Crie um Ambiente Virtual**
+- **Windows**
+```bash
+python -m venv .venv
+.venv/Scripts/activate
+```
+- **Linux/macOS**
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+### 3. **Instale as Dependências**
+```bash
+pip install -r requirements.txt
+```
+### 4. **Execute o Arquivo**
+```bash
+python alchemist.py
+```
