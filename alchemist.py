@@ -42,14 +42,17 @@ if __name__ == "__main__":
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
 
-        print("--- Alchemist Scraper SSE (Digite 'exit' para sair) ---")
+        print("=" * 60)
+        print("            Alchemist Scraper SSE - UESP EDITION")
+        print("                (Digite 'exit' para sair)")
+        print("=" * 60)
         busca = input("Qual poção ou efeito você deseja consultar? ").strip()
 
         if busca == 'exit':
             print("\nEncerrando o Grimório... Até logo, Alquimista!\n")
             break
 
-        if busca:
+        elif busca:
             lista = buscar_alquimia(busca)
 
             if lista:
